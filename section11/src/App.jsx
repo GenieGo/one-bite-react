@@ -1,4 +1,11 @@
-import { useState, useRef, useReducer, useCallback } from "react";
+import {
+  useState,
+  useRef,
+  useReducer,
+  useCallback,
+  createContext,
+  useMemo,
+} from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Editor from "./components/Editor";
@@ -38,6 +45,10 @@ function reducer(state, action) {
       return state;
   }
 }
+// 특수한경우 제외 대부분 컴포넌트 외부에서 작성하여 리랜더링 최소화
+
+export const TodoStateContext = createContext();
+export const TodoDispatchContext = createContext();
 function App() {
   const [todos, dispatch] = useReducer(reducer, mockData);
   const idRef = useRef(3);
@@ -66,11 +77,21 @@ function App() {
       targetId,
     });
   }, []);
+  // dispatchContext가 제공하는 데이터는 1회만 생성되도록
+  const memoizedDispatch = useMemo(() => {
+    return { onCreate, onUpdate, onDelete };
+  }, []);
   return (
     <div className="App">
       <Header />
-      <Editor onCreate={onCreate} />
-      <List todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
+      {/* <TodoContext.Provider value={{ todos, onCreate, onUpdate, onDelete }}> */}
+      <TodoStateContext.Provider value={todos}>
+        <TodoDispatchContext.Provider value={memoizedDispatch}>
+          <Editor />
+          <List />
+        </TodoDispatchContext.Provider>
+      </TodoStateContext.Provider>
+      {/* </TodoContext.Provider> */}
     </div>
   );
 }
