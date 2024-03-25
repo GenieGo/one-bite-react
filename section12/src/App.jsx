@@ -6,26 +6,36 @@ import New from "./pages/New";
 import Diary from "./pages/Diary";
 import Notfound from "./pages/Notfound";
 import Edit from "./pages/Edit";
-import Button from "./components/Button";
-import Header from "./components/Header";
 import { getEmotionImage } from "./util/get-emotion.image";
 
 const mockData = [
   {
     id: 1,
-    createdDate: new Date().getTime(),
+    createdDate: new Date("2024-02-19").getTime(),
     emotionId: 1,
     content: "1번일기 내용",
   },
   {
     id: 2,
-    createdDate: new Date().getTime(),
+    createdDate: new Date("2024-02-18").getTime(),
     emotionId: 2,
     content: "2번일기 내용",
   },
   {
     id: 3,
-    createdDate: new Date().getTime(),
+    createdDate: new Date("2024-03-01").getTime(),
+    emotionId: 3,
+    content: "3번일기 내용",
+  },
+  {
+    id: 3,
+    createdDate: new Date("2024-01-01").getTime(),
+    emotionId: 3,
+    content: "3번일기 내용",
+  },
+  {
+    id: 3,
+    createdDate: new Date("2024-01-01").getTime(),
     emotionId: 3,
     content: "3번일기 내용",
   },
@@ -45,8 +55,8 @@ function reducer(state, action) {
       return state;
   }
 }
-const DiaryStateContext = createContext();
-const DiaryDispatchContext = createContext();
+export const DiaryStateContext = createContext();
+export const DiaryDispatchContext = createContext();
 function App() {
   const [data, dispatch] = useReducer(reducer, mockData);
   const idRef = useRef(3);
