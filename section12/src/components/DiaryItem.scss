@@ -1,0 +1,50 @@
+.DiaryItem {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  padding: 15px 0px;
+  border-bottom: 1px solid rgb(236, 236, 236);
+
+  .img_section {
+    min-width: 120px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+
+    > img {
+      width: 50%;
+      height: auto;
+    }
+    &.img_seciotn_1 {
+      background-color: rgb(100, 201, 100);
+    }
+    &.img_seciotn_2 {
+      background-color: rgb(157, 215, 114);
+    }
+    &.img_seciotn_3 {
+      background-color: rgb(253, 206, 23);
+    }
+    &.img_seciotn_4 {
+      background-color: rgb(253, 132, 70);
+    }
+    &.img_seciotn_5 {
+      background-color: rgb(253, 86, 95);
+    }
+  }
+  .info_section {
+    flex: 1;
+    cursor: pointer;
+    .created_date {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    .content {
+      font-size: 18px;
+    }
+  }
+  .button_section {
+    min-width: 70px;
+  }
+}

@@ -83,29 +83,12 @@ function App() {
   };
   return (
     <>
-      <Header
+      {/* <Header
         title={"header"}
         leftChild={<Button text={"left"} />}
         rightChild={<Button text={"rifhgt"} />}
-      />
-      <Button
-        onClick={() => {
-          onCreate(new Date().getTime(), 1, "hello");
-        }}
-        text={"test button"}
-      />
-      <Button
-        onClick={() => {
-          onUpdate(2, new Date().getTime(), 1, "hello");
-        }}
-        text={"일기 수정테스트"}
-      />
-      <Button
-        onClick={() => {
-          onDelete(2);
-        }}
-        text={"일기 삭제테스트"}
-      />
+      /> */}
+
       <DiaryStateContext.Provider value={data}>
         <DiaryDispatchContext.Provider value={{ onCreate, onUpdate, onDelete }}>
           <Routes>
