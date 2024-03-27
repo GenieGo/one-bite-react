@@ -3,14 +3,8 @@ import EmotionItem from "./EmotionItem";
 import Button from "../components/Button";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { emotions } from "../util/constants";
 
-const emotions = [
-  { emotionId: 1, emotionName: "매우 좋음" },
-  { emotionId: 2, emotionName: "좋음" },
-  { emotionId: 3, emotionName: "보통" },
-  { emotionId: 4, emotionName: "나쁨" },
-  { emotionId: 5, emotionName: "매우 나쁨" },
-];
 const getStringedDate = (targetDate) => {
   // 날짜 -> YYYY.MM.DD
   let year = targetDate.getFullYear();
@@ -92,6 +86,7 @@ const Editor = ({ initData, onSubmit }) => {
         <textarea
           name="content"
           placeholder="오늘은 어땠나요?"
+          value={input.content}
           onChange={onChangeInput}
         ></textarea>
       </section>
