@@ -19,13 +19,13 @@ import Notfound from "./pages/Notfound";
 const mockData = [
   {
     id: 1,
-    createdDate: new Date("2024-04-25").getTime(),
+    createdDate: new Date("2024-03-25").getTime(),
     emotionId: 1,
     content: "1번 일기",
   },
   {
     id: 2,
-    createdDate: new Date("2024-04-25").getTime(),
+    createdDate: new Date("2024-05-25").getTime(),
     emotionId: 2,
     content: "2번 일기",
   },
